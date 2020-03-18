@@ -1,33 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ListGroup } from 'react-bootstrap'
-
+import Movie from '../movie/Movie'
 
 
 class Movielist extends React.Component {
   constructor(props) {
     super(props);
-    
   }
 
   render() {
 
     if (this.props.movies.results) {
-    
       return(
         <ListGroup>
-        
         {this.props.movies.results.map((movie, index) => (
-        <ListGroup.Item key={index}>{movie.title}</ListGroup.Item>
+          <Movie i={index} title={movie.title} year={movie.release_date} description={movie.overview} imagePath={movie.poster_path } />
       ))}
-
-  
         </ListGroup>
       )
 
     } else {
       return (
         <ListGroup>
-          <p class="text-muted">It's empty here!</p>
+          <p className="text-muted">It's empty here!</p>
         </ListGroup>
       )
     }

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Row, Col, Form, Button } from 'react-bootstrap'
-import MovieList from '../movielist/Movielist.js'
+import React from 'react';
+import { Row, Col, Form, Button, InputGroup } from 'react-bootstrap'
+import MovieList from '../searchresult/Searchresult.js'
 
 class Searchbar extends React.Component {
   constructor(props) {
@@ -29,15 +29,19 @@ class Searchbar extends React.Component {
   render() {
     return (
       <Row>
-        <Col>
+        <Col sm={12} md={6}>
           <Form onSubmit={this.handleSubmit}>
-            <Form.Group controlId="searchMovie">
-              <Form.Control type="text" placeholder="Name a great movie" value={this.state.value} onChange={this.handleChange} />
-              </Form.Group>
-            <Button className="btn btn-dark" type="submit" value="Submit">Search</Button>
+            <Form.Group className="d-flex flex-wrap" controlId="searchMovie">
+              <InputGroup>
+                <Form.Control size="lg" type="text" placeholder="Name a great movie" value={this.state.value} onChange={this.handleChange} />
+                <InputGroup.Append>
+                  <Button className="btn btn-primary px-5" type="submit" value="Submit"><i className="fa fa-search"></i></Button>
+                </InputGroup.Append>
+              </InputGroup>
+            </Form.Group>
           </Form>
         </Col>
-        <Col>
+        <Col sm={12}>
           <MovieList movies={this.state.movies} />
         </Col>
       </Row>
