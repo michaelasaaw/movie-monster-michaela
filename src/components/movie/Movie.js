@@ -10,11 +10,13 @@ class Movie extends React.Component {
         favourite: false,
         watchlist: false,
     };
-    console.log(this.state);
   }
-  checkPoster(path) {
-      let url = "https://image.tmdb.org/t/p/w200/" + path;
-      if (!path) url = "https://via.placeholder.com/100x150";
+  checkImagePath(path,width, height) {
+      let url = "https://image.tmdb.org/t/p/w" + width + "/" + path;
+       
+      if (!path) {
+        url = "https://via.placeholder.com/" + width + "x" + height;
+      } 
       return url;
   }
     addToFavourites() {
@@ -23,14 +25,14 @@ class Movie extends React.Component {
     addToWatchlist() {
         console.log("add to watchlist")
     }
-  render() {
+    render() {
       return(
         <ListGroup.Item key={this.props.i}>
             <Media>
                 <img
                     className="mr-3"
                     width={"100px"}
-                    src={this.checkPoster(this.props.imagePath)}
+                    src={this.checkImagePath(this.props.imagePath, 200, 300)}
                     alt={this.title + " - movie poster"}
                 />
                 <Media.Body>

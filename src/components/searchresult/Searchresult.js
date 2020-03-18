@@ -3,18 +3,15 @@ import { ListGroup } from 'react-bootstrap'
 import Movie from '../movie/Movie'
 
 
-class Movielist extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class Searchresult extends React.Component {
   render() {
 
     if (this.props.movies.results) {
+      console.log(this.props.movies);
       return(
         <ListGroup>
         {this.props.movies.results.map((movie, index) => (
-          <Movie i={index} title={movie.title} year={movie.release_date} description={movie.overview} imagePath={movie.poster_path } />
+          <Movie id={movie.id} key={index} title={movie.title} year={movie.release_date} description={movie.overview} imagePath={movie.poster_path } />
       ))}
         </ListGroup>
       )
@@ -29,4 +26,4 @@ class Movielist extends React.Component {
   }
 }
 
-export default Movielist;
+export default Searchresult;

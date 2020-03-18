@@ -1,0 +1,28 @@
+
+.navbar {
+    margin-bottom: 3em;
+}
+ul {
+    list-style: none;
+}
+nav ul li {
+    display:inline;
+    margin-right: 2em;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #e1e1e1;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+nav ul li a:active {
+    text-decoration: none;
+    color: #e1e1e1;
+}
+
+h1.start-heading {
+  font-family: 'Creepster', cursive;
+  font-size: 4em;
+  color: #77D64F;
+}

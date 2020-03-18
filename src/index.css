@@ -1,10 +1,5 @@
 body {
   background: #222;
-  padding-top: 4em;
-}
-
-.row {
-  margin-bottom: 2em;
 }
 .container {
   margin:0;
@@ -18,19 +13,13 @@ body {
 .btn-primary:hover {
   background: #88126A;
 }
-
-
-
-/* TYPOGRAPHY */
-
-h1,h2,h3
-{
-  color: #77D64F;
+@media only screen and (max-width: 990px) {
+  body {
+    padding-top: 1em;
+  }
+  .container {
+    margin:0;
+    margin-left:0;
+    max-width: 100%;
+  }
 }
-h1.start-heading 
-{
-  font-family: 'Creepster', cursive;
-  font-size: 4em;
-
-}
-
