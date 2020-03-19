@@ -4,13 +4,13 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Navigation from './components/navigation/Navigation'
-import Home from './components/home/Home'
-import Search from './components/search/Search'
-import Favourites from './components/favourites/Favourites'
-import Watchlist from './components/watchlist/Watchlist'
-import Auth from './components/auth/Auth'
-import Approved from './components/auth/Approved'
+import Navigation from './components/navigation/Navigation.js'
+import Home from './components/home/Home.js'
+import Search from './components/search/Search.js'
+import Favourites from './components/favourites/Favourites.js'
+import Watchlist from './components/watchlist/Watchlist.js'
+import Auth from './components/auth/Auth.js'
+import Approved from './components/auth/Approved.js'
 import './App.css';
 
 class App extends React.Component {
