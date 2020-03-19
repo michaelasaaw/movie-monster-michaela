@@ -16,7 +16,7 @@ class TMDB {
     createRequestToken() {
        axios.get('https://api.themoviedb.org/3/authentication/token/new?api_key=' + PUBLIC_API_KEY)
         .then(function (response) {
-            window.location.href = "https://www.themoviedb.org/authenticate/" + response.data.request_token + "?redirect_to=http://5.57.244.204:3000/approved?request_token=" +  response.data.request_token;
+            window.location.href = "https://www.themoviedb.org/authenticate/" + response.data.request_token + "?redirect_to=https://movie-monster-michaela.herokuapp/approved?request_token=" +  response.data.request_token;
         })
         .catch(function (error) {
             console.log(error);
