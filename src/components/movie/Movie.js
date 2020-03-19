@@ -1,7 +1,8 @@
 import React from 'react';
-import { ListGroup, Media } from 'react-bootstrap'
+import { Col, Media } from 'react-bootstrap'
 import './Movie.css';
-
+import TMDB from '../../api/TMDB'
+const tmdb = new TMDB();
 
 class Movie extends React.Component {
   constructor(props) {
@@ -19,34 +20,45 @@ class Movie extends React.Component {
       } 
       return url;
   }
-    addToFavourites() {
-        console.log("add to favourites");
+    addToFavourites(event) {
+      console.log("add to favourites")
+      tmdb.addToFavourites(event.target.getAttribute('movieid'), this.addedToFavourites)
     }
-    addToWatchlist() {
-        console.log("add to watchlist")
+
+    // callback
+    addedToFavourites() {
+      console.log('added!')
     }
+
+    addToWatchlist(event) {
+      console.log("add to watchlist")
+      tmdb.addToWatchlist(event.target.getAttribute('movieid'), this.addedToFavourites)
+    }
+
+    addedToWatchlist() {
+      console.log('added!')
+    }
+
     render() {
       return(
-        <ListGroup.Item key={this.props.i}>
+        <Col sm={12} md={6} lg={4} className="mb-4" key={this.props.i}>
             <Media>
                 <img
-                    className="mr-3"
                     width={"100px"}
                     src={this.checkImagePath(this.props.imagePath, 200, 300)}
                     alt={this.title + " - movie poster"}
                 />
-                <Media.Body>
+                <Media.Body className="p-3">
                     <h3>{this.props.title}</h3>
                     <div className="add-to-list">
-                        <i className="fa fa-heart add-to-favourites" onClick={this.addToFavourites.bind(this)}></i>
-                        <i className="fa fa-star add-to-watchlist" onClick={this.addToWatchlist.bind(this)}></i>
+                        <i className="fa fa-heart-o add-to-favourites" movieid={this.props.id} onClick={this.addToFavourites.bind(this)}></i>
+                        <i className="fa fa-clock-o add-to-watchlist" movieid={this.props.id} onClick={this.addToWatchlist.bind(this)}></i>
                     </div>
                     <p className="text-muted"><small>Release date: {this.props.year}</small></p>
                     <p>{this.props.description.substring(0,140) + "..."}</p>
-                   
                 </Media.Body>
             </Media>
-        </ListGroup.Item>
+        </Col>
       )
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import Movie from '../movie/Movie'
 
 
@@ -9,18 +9,20 @@ class Searchresult extends React.Component {
     if (this.props.movies.results) {
       console.log(this.props.movies);
       return(
-        <ListGroup>
+        <Row>
         {this.props.movies.results.map((movie, index) => (
           <Movie id={movie.id} key={index} title={movie.title} year={movie.release_date} description={movie.overview} imagePath={movie.poster_path } />
       ))}
-        </ListGroup>
+        </Row>
       )
 
     } else {
       return (
-        <ListGroup>
-          <p className="text-muted">It's empty here!</p>
-        </ListGroup>
+        <Row>
+          <Col>
+            <p className="text-muted">It's empty here!</p>
+          </Col>
+        </Row>
       )
     }
   }

@@ -1,10 +1,14 @@
 body {
   background: #222;
+  color: #e1e1e1;
+}
+h2 {
+  margin-bottom: 1em;
 }
 .container {
   margin:0;
-  margin-left:10%;
-  max-width: 80%;
+  max-width:100%;
+  padding: 2em 4em 2em 4em;
 }
 .btn-primary {
   background: #B8449B;
@@ -13,6 +17,10 @@ body {
 .btn-primary:hover {
   background: #88126A;
 }
+.form-control, .btn {
+  border-radius: 0;
+}
+
 @media only screen and (max-width: 990px) {
   body {
     padding-top: 1em;
@@ -21,5 +29,6 @@ body {
     margin:0;
     margin-left:0;
     max-width: 100%;
+    padding: 1em;
   }
 }

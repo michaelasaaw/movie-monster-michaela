@@ -1,9 +1,17 @@
-
-.media
-{
-  position: relative;
+.media {
+  background:#000000;
+  height: 100%; 
 }
-.media h3 {
+.media-body {
+  position: relative;
+  background: #ffffff;
+  color: #222222; 
+  height: 100%;
+}
+.media-body p {
+  background: #ffffff;
+}
+.media-body h3 {
   font-size: 1.3rem;
 }
 .add-to-list 
@@ -15,7 +23,7 @@
   color: #DDDDDD; 
 }
 .add-to-list .fa {
-  margin-left: 1em;
+  margin-right: 0.25em;
   cursor: pointer;
 }
 .added-to-favourite 

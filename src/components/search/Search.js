@@ -1,6 +1,10 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button, InputGroup } from 'react-bootstrap'
-import Searchresult from '../searchresult/Searchresult.js'
+import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import Searchresult from './Searchresult.js'
+import TMDB from '../../api/TMDB'
+import './Search.css';
+
+const tmdb = new TMDB();
 
 class Search extends React.Component {
   constructor(props) {
@@ -14,10 +18,11 @@ class Search extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    const mdb = require('moviedb')('083fa5e11411b1e085ce96b058432e29');
-    mdb.searchMovie({ query: this.state.value }, (err, res) => {
-      this.setState({movies: res});
-    });
+    tmdb.search(this.state.value, this.setMovies.bind(this))
+  }
+  // callback function
+  setMovies( movies ) {
+    this.setState({movies: movies})
   }
   render() {
     return (
@@ -25,13 +30,9 @@ class Search extends React.Component {
         <Row>
           <Col sm={12} md={12} lg={6}>
             <Form onSubmit={this.handleSubmit}>
-              <Form.Group className="d-flex flex-wrap" controlId="searchMovie">
-                <InputGroup>
+              <Form.Group className="d-flex" controlId="searchMovie">
                   <Form.Control size="lg" type="text" placeholder="Name a great movie" value={this.state.value} onChange={this.handleChange} />
-                  <InputGroup.Append>
-                    <Button className="btn btn-primary px-5" type="submit" value="Submit"><i className="fa fa-search"></i></Button>
-                  </InputGroup.Append>
-                </InputGroup>
+                  <Button className="btn btn-primary px-5" type="submit" value="Submit"><i className="fa fa-search"></i></Button>
               </Form.Group>
             </Form>
           </Col>

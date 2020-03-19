@@ -1,0 +1,40 @@
+
+.start-container, .start-container-background {
+    position:absolute;
+    height: 80vh;
+    top: 20vh;
+}
+.start-container {
+    z-index: 2;
+}
+.start-container .row {
+    height: 100%;
+    align-items: center;
+}
+.start-container-background {
+    content: ' ';
+    display: block;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 0.6;
+    background-image: url(https://image.tmdb.org/t/p/original/3p5YkOrajk3DVYrGwX64p8ervti.jpg);
+    background-position: center;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+h2,p {
+    background: #333;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 992px) {
+    .start-container,.start-container-background { 
+        top: 0vh;
+        height: 90vh;
+    }
+
+}
