@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Movie from './../movie/Movie'
-import TMDB from '../../api/TMDB'
+import TMDB from '../../api/tmdb/TMDB'
 const tmdb = new TMDB();
 
 class Watchlist extends React.Component {

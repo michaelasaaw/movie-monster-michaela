@@ -1,13 +1,12 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row, Alert } from 'react-bootstrap'
 import Movie from '../movie/Movie'
 
 
 class Searchresult extends React.Component {
-  render() {
 
+  render() {
     if (this.props.movies.results) {
-      console.log(this.props.movies);
       return(
         <Row>
         {this.props.movies.results.map((movie, index) => (
@@ -15,14 +14,19 @@ class Searchresult extends React.Component {
       ))}
         </Row>
       )
-
-    } else {
-      return (
+    } else if (this.props.movies.results && this.props.movies.results.length === 0) {
+       return(
         <Row>
-          <Col>
-            <p className="text-muted">It's empty here!</p>
+          <Col lg={6}>
+            <Alert variant="warning">
+              Zero results. Zorry!
+            </Alert>
           </Col>
         </Row>
+      ) 
+    } else {
+      return (
+        <Row></Row>
       )
     }
   }

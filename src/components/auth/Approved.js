@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
-import TMDB from '../../api/TMDB';
+import TMDB from '../../api/tmdb/TMDB';
 
 const tmdb = new TMDB();
 
 class Approved extends Component {
     constructor(props) {
         super(props)
-        tmdb.createSession(this.getRequestTokenFromUrl());
+        this.state = {error: null}
+        this.initSession()
+    }
+
+    async initSession() { 
+        try {
+            let response = await tmdb.createSession(this.getRequestTokenFromUrl());
+            localStorage.session_id = response.data.session_id;
+            this.setState({error: null})
+            try {
+                response = await tmdb.getAccountDetails(localStorage.session_id);
+                localStorage.account_id = response.data.id;
+            } catch {
+                this.setState({error: "Could not get account details. Please try again."})
+            }
+        } catch (exception) {
+            this.setState({error: "Could not create a new session. Please try again."})
+        }
     }
 
     getRequestTokenFromUrl() {

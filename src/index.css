@@ -10,14 +10,8 @@ h2 {
   max-width:100%;
   padding: 2em 4em 2em 4em;
 }
-.btn-primary {
-  background: #B8449B;
-  border: none;
-}
-.btn-primary:hover {
-  background: #88126A;
-}
-.form-control, .btn {
+
+.btn, .form-control {
   border-radius: 0;
 }
 

@@ -4,5 +4,6 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect';
 const Enzyme = require('enzyme');
-const EnzymeAdapter = require('enzyme-adapter-react-15');
-Enzyme.configure({ adapter: new EnzymeAdapter() });
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
