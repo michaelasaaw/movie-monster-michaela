@@ -9,7 +9,7 @@ const Watchlist = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    if (localStorage.session_id) {
+    if (localStorage.session_id && localStorage.session_id !== "undefined") {
       getWatchlist();
     } else {
       window.location.href = "/auth";

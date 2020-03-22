@@ -11,7 +11,7 @@ const Favourites = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    if (localStorage.session_id) {
+    if (localStorage.session_id && localStorage.session_id !== "undefined") {
       getFavourites();
     } else {
       window.location.href = "/auth";
