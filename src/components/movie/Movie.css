@@ -26,20 +26,4 @@
   margin-right: 0.25em;
   cursor: pointer;
 }
-.added-to-favourite 
-{
-  color:#B8449B;
-}
-.added-to-watchlist 
-{
-  color:#B8449B;
-}
-.add-to-favourites:hover
-{
-  color: #B8449B;
-}
-.add-to-watchlist:hover
-{
- color: #E1D937;
-}
 

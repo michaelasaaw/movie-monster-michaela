@@ -1,50 +1,79 @@
-import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap'
-import TMDB from '../../api/tmdb/TMDB';
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Alert } from "react-bootstrap";
+import TMDB from "../../api/tmdb/TMDB";
 
 const tmdb = new TMDB();
 
-class Approved extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {error: null}
-        this.initSession()
-    }
+const Approved = () => {
+  const [error, setError] = useState(null);
 
-    async initSession() { 
-        try {
-            let response = await tmdb.createSession(this.getRequestTokenFromUrl());
-            localStorage.session_id = response.data.session_id;
-            this.setState({error: null})
-            try {
-                response = await tmdb.getAccountDetails(localStorage.session_id);
-                localStorage.account_id = response.data.id;
-            } catch {
-                this.setState({error: "Could not get account details. Please try again."})
-            }
-        } catch (exception) {
-            this.setState({error: "Could not create a new session. Please try again."})
-        }
+  useEffect(() => {
+    if (!localStorage.session_id) {
+      initSession();
+    } else if (localStorage.session_id === "undefined") {
+      window.location.href = "/auth";
     }
+  });
 
-    getRequestTokenFromUrl() {
-        let url_string = window.location.href;
-        let url = new URL(url_string);
-        return  url.searchParams.get("request_token");
-    }
-
-    render () {
-        return (
-          <Container>
-                <Row>
-                    <Col>    
-                        <h2>You're logged in! <span role="img" className="float-right" aria-label="tv-emoji">📺</span></h2>
-                        <p>Let's start adding movies! <span role="img" aria-label="popcorn-emoji">🍿</span></p>
-                    </Col>
-                </Row> 
-            </Container>
+  const initSession = async () => {
+    try {
+      let response = await tmdb.createSession(getRequestTokenFromUrl());
+      localStorage.session_id = response.data.session_id;
+      setError(null);
+      try {
+        let accountDetails = await tmdb.getAccountDetails(
+          localStorage.session_id
         );
+        if (accountDetails.data.name !== "") {
+          localStorage.username = accountDetails.data.name;
+        } else {
+          localStorage.username = accountDetails.data.username;
+        }
+        localStorage.account_id = accountDetails.data.id;
+      } catch (exception) {
+        setError("Couldn't get your account details.");
+      }
+    } catch (exception) {
+      setError("Couldn't create new session");
     }
-}
+  };
+
+  const getRequestTokenFromUrl = () => {
+    console.log("get request token");
+    let url_string = window.location.href;
+    let url = new URL(url_string);
+    return url.searchParams.get("request_token");
+  };
+
+  return (
+    <Container>
+      <Row>
+        {!error && (
+          <Col>
+            <h2>
+              Hi {localStorage.username}, You're logged in!{" "}
+              <span role="img" className="float-right" aria-label="tv-emoji">
+                📺
+              </span>
+            </h2>
+            <p>
+              Let's start adding movies!{" "}
+              <span role="img" aria-label="popcorn-emoji">
+                🍿
+              </span>
+            </p>
+          </Col>
+        )}
+        {error && (
+          <Col>
+            <Alert id="error-box" variant="warning">
+              {error}
+            </Alert>
+          </Col>
+        )}
+      </Row>
+    </Container>
+  );
+};
 
 export default Approved;

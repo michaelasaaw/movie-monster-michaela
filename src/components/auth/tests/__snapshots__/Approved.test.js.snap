@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Approved /> should match the snapshot 1`] = `"<div class=\\"container\\"><div class=\\"row\\"><div class=\\"col\\"><h2>Hi , You&#x27;re logged in! <span role=\\"img\\" class=\\"float-right\\" aria-label=\\"tv-emoji\\">📺</span></h2><p>Let&#x27;s start adding movies! <span role=\\"img\\" aria-label=\\"popcorn-emoji\\">🍿</span></p></div></div></div>"`;

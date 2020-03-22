@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Auth /> should match the snapshot 1`] = `"<div class=\\"container\\"><div class=\\"row\\"><div class=\\"col\\"><div role=\\"alert\\" class=\\"fade alert alert-warning show\\">You need to be authenticated. Stand by.</div></div></div></div>"`;

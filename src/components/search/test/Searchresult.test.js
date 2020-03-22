@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import Searchresult from '../Searchresult.js'
 import MOCK_SEARCHRESULT from './Searchresult.testdata.js'
 

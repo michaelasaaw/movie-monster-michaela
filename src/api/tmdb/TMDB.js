@@ -9,38 +9,44 @@ class TMDB {
     }
 
     async getRequestToken() {
-        return await axios.get(`${BASE_API_URL}/authentication/token/new?api_key=${PUBLIC_API_KEY}`)
+        return await axios.get(`${BASE_API_URL}authentication/token/new?api_key=${PUBLIC_API_KEY}`)
     }
 
     async createSession(requestToken) {
-        return await axios.post(`${BASE_API_URL}/authentication/session/new?api_key=${PUBLIC_API_KEY}`, { request_token: requestToken })
+        return await axios.post(`${BASE_API_URL}authentication/session/new?api_key=${PUBLIC_API_KEY}`, { request_token: requestToken })
     }
 
     async getAccountDetails(sessionID) {
-        return await axios.get(`${BASE_API_URL}/authentication/token/new?api_key=${PUBLIC_API_KEY}&session_id=${sessionID}`)
+        return await axios.get(`${BASE_API_URL}account/new?api_key=${PUBLIC_API_KEY}&session_id=${sessionID}`)
     }
 
-    async getFavouritesMovies(){
-        return await axios.get(`${BASE_API_URL}/account/${localStorage.account_id}/favorite/movies?api_key=${PUBLIC_API_KEY}&session_id=${localStorage.session_id}&language=en-US&sort_by=created_at.asc&page=1`)
+    async getFavourites(){
+        return await axios.get(`${BASE_API_URL}account/${localStorage.account_id}/favorite/movies?api_key=${PUBLIC_API_KEY}&session_id=${localStorage.session_id}&language=en-US&sort_by=created_at.asc&page=1`)
     }
 
     async manageFavourites(movieID, status) {
-        return await   axios.post(`${BASE_API_URL}/account/${localStorage.account_id}/favorite?api_key=${PUBLIC_API_KEY}&session_id=${localStorage.session_id}`, {
+        return await axios.post(`${BASE_API_URL}account/${localStorage.account_id}/favorite?api_key=${PUBLIC_API_KEY}&session_id=${localStorage.session_id}`, {
             media_type: "movie",
             media_id: Number(movieID),
             favorite: status
           })
     }
 
-    async getWatchlist() {
-        return await axios.get(`${BASE_API_URL}/account/${localStorage.account_id}/watchlist/movies?api_key=${PUBLIC_API_KEY}&session_id=${localStorage.session_id}&language=en-US&sort_by=created_at.asc&page=1'`)
+    async getWatchlist(){
+        return await axios.get(`${BASE_API_URL}account/${localStorage.account_id}/watchlist/movies?api_key=${PUBLIC_API_KEY}&session_id=${localStorage.session_id}&language=en-US&sort_by=created_at.asc&page=1`)
     }
 
-    async addToWatchlist(movieID){
-        return await axios.post(`${BASE_API_URL}/account/${localStorage.account_id}/watchlist/movies?api_key=${PUBLIC_API_KEY}&session_id=${localStorage.session_id}`, {
+    async manageWatchlist(movieID, status) {
+        return await axios.post(`${BASE_API_URL}account/${localStorage.account_id}/watchlist?api_key=${PUBLIC_API_KEY}&session_id=${localStorage.session_id}`, {
             media_type: "movie",
             media_id: Number(movieID),
-            watchlist: true
+            favorite: status
+          })
+    }
+
+    async destroySession(sessionID) {
+        return await axios.delete(`${BASE_API_URL}authentication/session?api_key=${PUBLIC_API_KEY}`, {
+            session_id: sessionID
         })
     }
 
