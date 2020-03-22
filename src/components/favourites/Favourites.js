@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Movie from "./../movie/Movie";
 import TMDB from "../../api/tmdb/TMDB";
 import { useEffect } from "react";
