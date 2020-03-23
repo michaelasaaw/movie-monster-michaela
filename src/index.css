@@ -10,11 +10,25 @@ h2 {
   max-width:100%;
   padding: 2em 4em 2em 4em;
 }
-
 .btn, .form-control {
   border-radius: 0;
 }
-
+.btn-primary {
+  background: #E95670;
+  color: #000;
+  border: #E95670; 
+}
+.btn-primary:hover {
+  background: #D3334F;
+}
+.btn-info {
+  background: #F9965C;
+  color: #000;
+  border: #F9965C; 
+}
+.btn-info:hover {
+  background: #E17636;
+}
 @media only screen and (max-width: 990px) {
   body {
     padding-top: 1em;

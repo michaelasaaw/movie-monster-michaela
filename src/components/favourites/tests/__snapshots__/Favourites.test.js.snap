@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Favourites /> should match the snapshot 1`] = `"<div class=\\"container\\"><div class=\\"row\\"><div class=\\"col\\"><h2>Favourites <span role=\\"img\\" class=\\"float-right\\" aria-label=\\"red-heart-emoji\\">❤️</span></h2></div></div><div class=\\"row\\"><div class=\\"col\\"><p class=\\"text-muted\\">It&#x27;s empty here!<span role=\\"img\\" aria-label=\\"sad-emoji\\">😥</span></p><p class=\\"text-muted\\">Find favourites to add using our great<a href=\\"/search\\">search</a><span role=\\"img\\" aria-label=\\"heart-eyes-emoji\\">😍</span></p></div></div></div>"`;

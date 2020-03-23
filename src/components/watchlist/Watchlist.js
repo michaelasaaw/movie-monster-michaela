@@ -60,7 +60,9 @@ const Watchlist = () => {
       <Container>
         <Row>
           <Col>
-            <Alert id="error-box" variant="danger">{error}</Alert>
+            <Alert id="error-box" variant="danger">
+              {error}
+            </Alert>
           </Col>
         </Row>
       </Container>
@@ -87,7 +89,8 @@ const Watchlist = () => {
             </span>
           </p>
           <p className="text-muted">
-            Find movies to add to your watchlist using our great <a href="/search">search</a>
+            Find movies to add to your watchlist using our great{" "}
+            <a href="/search">search</a>
             <span role="img" aria-label="heart-eyes-emoji">
               😍
             </span>

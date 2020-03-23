@@ -87,7 +87,7 @@ const Movie = props => {
                 <Button
                   id="remove-from-favourites-btn"
                   className="btn-block text-left"
-                  variant="danger"
+                  variant="dark"
                   movieid={props.id}
                   onClick={removeFromFavourites}
                 >
@@ -116,7 +116,7 @@ const Movie = props => {
                 <Button
                   id="remove-from-watchlist-btn"
                   className="btn-block text-left"
-                  variant="danger"
+                  variant="dark"
                   movieid={props.id}
                   onClick={removeFromWatchlist}
                 >

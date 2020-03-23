@@ -1,8 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import { shallow } from "enzyme";
-import Favourites from "./../Favourites";
-
+import Favourites from "../Favourites";
 
 describe("<Favourites />", () => { 
     const wrapper = shallow(<Favourites />);
