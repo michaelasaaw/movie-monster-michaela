@@ -42,6 +42,7 @@ const Watchlist = () => {
         <Row>
           {movies.map((movie, index) => (
             <Movie
+              onUpdate={getWatchlist}
               watchlist={true}
               id={movie.id}
               key={index}
@@ -86,8 +87,7 @@ const Watchlist = () => {
             </span>
           </p>
           <p className="text-muted">
-            Find movies to add to your watchlist using our great
-            <a href="/search">search</a>
+            Find movies to add to your watchlist using our great <a href="/search">search</a>
             <span role="img" aria-label="heart-eyes-emoji">
               😍
             </span>

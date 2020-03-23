@@ -55,6 +55,7 @@ const Favourites = () => {
               year={movie.release_date}
               description={movie.overview}
               imagePath={movie.poster_path}
+              onUpdate={getFavourites}
             />
           ))}
         </Row>
@@ -96,8 +97,7 @@ const Favourites = () => {
             </span>
           </p>
           <p className="text-muted">
-            Find favourites to add using our great
-            <a href="/search">search</a>
+            Find favourites to add using our great <a href="/search">search</a>
             <span role="img" aria-label="heart-eyes-emoji">
               😍
             </span>

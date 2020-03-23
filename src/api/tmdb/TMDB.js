@@ -40,8 +40,8 @@ class TMDB {
         return await axios.post(`${BASE_API_URL}account/${localStorage.account_id}/watchlist?api_key=${PUBLIC_API_KEY}&session_id=${localStorage.session_id}`, {
             media_type: "movie",
             media_id: Number(movieID),
-            favorite: status
-          })
+            watchlist: status
+        })
     }
 
     async destroySession(sessionID) {
