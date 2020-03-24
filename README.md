@@ -7,6 +7,8 @@ The application is available on: http://movie-monster-michaela.herokuapp.com/
 To be able to use all functionalites of the app you need to register an account on
 https://www.themoviedb.org/
 
+Without the account you will only be able to use the search function.
+
 ## How to start
 
 When you click on the user icon in the menu of the app you will be rerouted to themoviedb.com.<br />
