@@ -1,8 +1,8 @@
 import axios from "axios";
-import MOCK_SEARCH_SUCCESS from "./../../../testdata/mock_search-success";
-import MOCK_REQUEST_TOKEN_SUCCESS from "./../../../testdata/mock_request-token-success";
-import MOCK_FAVOURITES_SUCCESS from "./../../../testdata/mock_favourites-success";
-import MOCK_WATCHLIST_SUCCESS from "./../../../testdata/mock_watchlist-success";
+import MOCK_SEARCH_SUCCESS from "./data/mock_search-success";
+import MOCK_REQUEST_TOKEN_SUCCESS from "./data/mock_request-token-success";
+import MOCK_FAVOURITES_SUCCESS from "./data/mock_favourites-success";
+import MOCK_WATCHLIST_SUCCESS from "./data/mock_watchlist-success";
 import TMDB from "../TMDB";
 jest.mock("axios");
 

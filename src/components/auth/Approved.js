@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Alert } from "react-bootstrap";
-import TMDB from "../../api/tmdb/TMDB";
+import React, { useState, useEffect } from "react"
+import { Container, Row, Col, Alert } from "react-bootstrap"
+import TMDB from "../../api/tmdb/TMDB"
+import { isSignedIn } from "./Auth"
 
 const tmdb = new TMDB();
 
@@ -8,11 +9,9 @@ const Approved = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!localStorage.session_id) {
+    if (!isSignedIn()) {
       initSession();
-    } else if (localStorage.session_id === "undefined") {
-      window.location.href = "/auth";
-    }
+    } 
   });
 
   const initSession = async () => {
@@ -39,7 +38,6 @@ const Approved = () => {
   };
 
   const getRequestTokenFromUrl = () => {
-    console.log("get request token");
     let url_string = window.location.href;
     let url = new URL(url_string);
     return url.searchParams.get("request_token");

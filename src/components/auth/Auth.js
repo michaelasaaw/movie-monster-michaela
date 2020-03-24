@@ -6,18 +6,24 @@ const tmdb = new TMDB();
 const BASE_URL_TMDB = "https://www.themoviedb.org/authenticate/";
 const APP_HOST = "movie-monster-michaela.herokuapp.com";
 
+export const isSignedIn = () => {
+  if (!localStorage.session_id || localStorage.session_id === "undefined") {
+    return false
+  }
+  return true
+}
+
 const Auth = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!localStorage.session_id || localStorage.session_id === "undefined") {
+    if (!isSignedIn()) {
       authRequest();
-    } else {
-      window.location.href = "/approved";
-    }
+    } 
   }, []);
 
   const authRequest = async () => {
+
     try {
       const response = await tmdb.getRequestToken();
       setError(null);
