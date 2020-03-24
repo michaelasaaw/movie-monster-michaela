@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 const Navigation = () => {
@@ -7,31 +6,31 @@ const Navigation = () => {
     <nav>
       <ul>
         <li>
-          <Link className="home-link" to="/">
+          <a className="home-a" href="/">
             <h1 className="start-heading">
               M<span>ovie Monster</span>
             </h1>
-          </Link>
+          </a>
         </li>
         <li>
-          <Link to="/search">
+          <a href="/search">
             <i className="fa fa-search mr-2"></i> <span>Search</span>
-          </Link>
+          </a>
         </li>
         <li>
-          <Link to="/favourites">
+          <a href="/favourites">
             <i className="fa fa-heart-o mr-2"></i> <span>Favourites</span>
-          </Link>
+          </a>
         </li>
         <li>
-          <Link to="/watchlist">
+          <a href="/watchlist">
             <i className="fa fa-clock-o mr-2"></i> <span>Watchlist</span>
-          </Link>
+          </a>
         </li>
         <li>
-          <Link to="/auth">
+          <a href="/auth">
             <i className="fa fa-user mr-2"></i> <span>Profile</span>
-          </Link>
+          </a>
         </li>
       </ul>
     </nav>

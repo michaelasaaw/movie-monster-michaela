@@ -38,6 +38,7 @@ const Search = () => {
           <Form onSubmit={handleSumbit}>
             <Form.Group className="d-flex" controlId="searchMovie">
               <Form.Control
+                id="search-input"
                 size="lg"
                 type="text"
                 placeholder="Name a great movie"
@@ -45,6 +46,7 @@ const Search = () => {
                 onChange={handleChange}
               />
               <Button
+                id="search-button"
                 className="btn btn-info px-5"
                 type="submit"
                 value="Submit"

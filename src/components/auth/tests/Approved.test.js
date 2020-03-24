@@ -8,13 +8,5 @@ describe("<Approved />", () => {
     it("should match the snapshot", () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
-    it("should render error element on error", () => {
-      wrapper.error = "Something is wrong";
-      wrapper.find("#error-box");
-    });
-    it("should not render error element when state error equals null", () => {
-      wrapper.error = null;
-      wrapper.find("#error-box");
-    });
 });
   
