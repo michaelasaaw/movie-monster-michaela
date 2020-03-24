@@ -19,7 +19,9 @@ const Auth = () => {
   useEffect(() => {
     if (!isSignedIn()) {
       authRequest();
-    } 
+    } else {
+      window.location.href = "/approved"
+    }
   }, []);
 
   const authRequest = async () => {
