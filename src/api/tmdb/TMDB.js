@@ -3,7 +3,6 @@ const PUBLIC_API_KEY = "083fa5e11411b1e085ce96b058432e29";
 const BASE_API_URL = "https://api.themoviedb.org/3/";
 
 class TMDB {
-    
   async getMoviesBySearch(inputValue) {
     return await axios.get(
       `${BASE_API_URL}search/movie?api_key=${PUBLIC_API_KEY}&query=${inputValue}`
@@ -63,14 +62,6 @@ class TMDB {
     );
   }
 
-  async destroySession(sessionID) {
-    return await axios.delete(
-      `${BASE_API_URL}authentication/session?api_key=${PUBLIC_API_KEY}`,
-      {
-        session_id: sessionID
-      }
-    );
-  }
 }
 
 export default TMDB;
