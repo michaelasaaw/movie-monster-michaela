@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { mount } from 'enzyme';
 import Searchresult from '../Searchresult.js'
-import MOCK_SEARCH_SUCCESS from './../../../testdata/mock_search-success'
+import MOCK_SEARCH_SUCCESS from './data/mock_search-success'
 
 describe('Searchresult component', () => {
     it('renders correctly', () => {
