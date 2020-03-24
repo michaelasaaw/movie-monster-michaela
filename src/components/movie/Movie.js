@@ -23,7 +23,7 @@ const Movie = props => {
       setFavourite(true);
       setError(null);
     } catch (error) {
-      console.log(error)
+      console.error(error)
       setError("Couldn't add movie to favourites right now :(");
     }
   };
@@ -35,7 +35,7 @@ const Movie = props => {
       setFavourite(false);
       setError(null);
     } catch (error) {
-      console.log(error)
+      console.error(error)
       setError("Couldn't remove movie from favourites right now :(");
     }
   };
@@ -46,7 +46,7 @@ const Movie = props => {
       setWatchlist(true);
       setError(null);
     } catch (error){
-      console.log(error)
+      console.error(error)
       setError("Couldn't add movie to watchlist right now :(");
     }
   };
@@ -58,7 +58,7 @@ const Movie = props => {
       setWatchlist(false);
       setError(null);
     } catch (error) {
-      console.log(error)
+      console.error(error)
       setError("Couldn't remove movie from watchlist right now :(");
     }
   };
